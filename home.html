@@ -8,6 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="./styles/main.css">
+    <link rel="stylesheet" href="./styles/menu-mobile.css">
     <link rel="stylesheet" href="./styles/home.css">
 
 
@@ -19,13 +20,13 @@
 <body>
     
     <nav>
-        <button class="button-menu" type="button">
+        <button id="button-menu" class="button-menu" type="button">
             <div></div>
             <div></div>
             <div></div>
         </button>
 
-        <ul class="menu-mobile">
+        <ul id="menu-mobile" class="menu-mobile">
             <li>Meu Perfil</li>
             <li>Histórico de Gastos</li>
             <li>Relatórios</li>
@@ -34,7 +35,45 @@
 
         <h1>Minhas Finanças</h1>
     </nav>
+
+    <section class="home">
+        <div class="card">
+            <p class="card-info-title">Novembro</p>
+    
+            <div class="card-info">
+                
+        
+                <div class="ganhos border">
+                    <p class="info-title" style="color: #0466c8">Entradas</p>
+                    <p><span>Salário:</span> R$ 5.130,00</p>
+                    <p><span>Contratos:</span> R$ 15.760,00</p>
+                    <p><span>FreeLancer:</span> R$ 3.320,00</p>
+                </div>
+
+                <div class="gastos border">
+                    <p class="info-title" style="color: #d62828">Gastos</p>
+                    <p><span>Aluguel:</span> R$ 1.000,00</p>
+                    <p><span>Compras:</span> R$ 760,00</p>
+                    <p><span>Dízimo:</span> R$ 1.000,00</p>
+                    <p><span>Fornecedores:</span> R$ 6.760,00</p>
+                    <p><span>Lanches:</span> R$ 460,00</p>
+                    <p><span>Lazer:</span> R$ 500,00</p>
+                </div>
+            </div>
+            <div class="balance-div">
+                <p class="balance"><span class="info-title">Balanço:</span> +R$ 13.730,00</p>
+            </div>
+        </div>
+
+        <div><canvas id="myChart"></canvas></div>
+
+
+
+        <button class="new-button" type="button">+</button>
+    </section>
     
 
 </body>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="./js/script.js"></script>
 </html>
