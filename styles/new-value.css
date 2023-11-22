@@ -1,0 +1,47 @@
+
+
+.new-div {
+    box-sizing: border-box;
+    height: 92vh;
+    display: flex;
+    justify-content: center;
+    padding-top: 5rem;
+}
+
+.new-form {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--primary-color);
+    padding: 2rem;
+    height: 50vh;
+    border-radius: 5px;
+    color: #fff;
+}
+
+
+.new-form input{
+    box-sizing: border-box;
+    height: 1.7rem;
+    padding: 0 0.2rem;
+}
+
+.new-form select {
+    height: 1.7rem;
+}
+
+.new-form input, .new-form select {
+    margin-bottom: 0.5rem;
+    border-radius: 5px;
+    border: none;
+}
+
+.new-form button {
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    font-weight: 700;
+    border: none;
+    border-radius: 5px;
+    background-color: #fff;
+    color: var(--primary-color);
+    cursor: pointer;
+}

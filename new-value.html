@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="./styles/main.css">
+    <link rel="stylesheet" href="./styles/menu-mobile.css">
+    <link rel="stylesheet" href="./styles/new-value.css">
+
+    <title>Adicionar Valor</title>
+</head>
+<body>
+    <nav>
+        <button id="button-menu" class="button-menu" type="button">
+            <div></div>
+            <div></div>
+            <div></div>
+        </button>
+
+        <ul id="menu-mobile" class="menu-mobile">
+            <li>Meu Perfil</li>
+            <li>Histórico Financeiro</li>
+            <li>Relatórios</li>
+            <li><button class="exit-button" type="button">Sair</button></li>
+        </ul>
+
+        <h1>Adicionar Registro</h1>
+    </nav>
+
+    <div class="new-div">
+       
+        <form class="new-form" action="home.html">
+            <label for="type">Tipo: </label>
+            <select name="" id="type">
+                <option value="entrada">Entrada</option>
+                <option value="gasto">Gasto</option>
+            </select>
+
+            <label for="category">Categoria: </label>
+            <input type="text" id="category">
+
+            <label for="value">Valor: </label>
+            <input type="number" id="value">
+
+            <label for="date">Data: </label>
+            <input type="date" id="date">
+
+
+
+            <button type="submit" onclick="register()">Adicionar</button>
+        </form>
+        
+    </div>
+</body>
+
+<script src="./js/script.js"></script>
+</html>

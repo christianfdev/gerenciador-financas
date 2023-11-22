@@ -7,6 +7,7 @@
     padding: 3rem;
 }
 
+
 .card {
     display: flex;
     flex-direction: column;
@@ -63,11 +64,11 @@
 
 .new-button {
     box-sizing: border-box;
-    position: absolute;
-    background-color: var(--primary-color);
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
     color: #fff;
-    bottom: 2rem;
-    right: 2rem;
+    background-color: var(--primary-color);
     border: none;
     border-radius: 50%;
     font-size: 2rem;
@@ -75,7 +76,6 @@
     height: 3rem;
     cursor: pointer;
 }
-
 
 @media (max-width: 800px){
     .home {
