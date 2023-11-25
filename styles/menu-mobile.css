@@ -5,8 +5,13 @@ nav {
     align-items: center;
     height: 8vh;
     background-color: var(--primary-color);
-    color: #fff;
     border: none;
+    color: #fff;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
 }
 
 .button-menu {
