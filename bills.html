@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="./styles/main.css">
+    <link rel="stylesheet" href="./styles/menu-mobile.css">
+    
+    
+    <title>Gerenciador de Finanças</title>
+</head>
+<body>
+    <nav>
+        <button id="button-menu" class="button-menu" type="button">
+            <div></div>
+            <div></div>
+            <div></div>
+        </button>
+
+        <ul id="menu-mobile" class="menu-mobile">
+            <li><a href="">Meu Perfil</a></li>
+            <li><a href="">Histórico Financeiro</a></li>
+            <li><a href="">Relatórios</a></li>
+            <li><button class="exit-button" type="button">Sair</button></li>
+        </ul>
+
+        <h1>Mês de Novembro</h1>
+    </nav>
+
+    <div id="div-entries">
+        <ul id="entries"></ul>
+    </div>
+
+    <div id="div-debts">
+        <ul id="debts"></ul>
+    </div>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="./js/bills.js"></script>
+</body>
+</html>
