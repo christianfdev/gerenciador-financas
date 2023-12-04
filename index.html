@@ -21,18 +21,20 @@
         <h1>Financeiro</h1>
         <h2>v.1</h2>
 
-        <div class="inputs">
+        <form class="inputs">
             <label for="login">Login</label>
             <input id="login" class="input input-login" type="text">
 
             <label for="password">Senha</label>
             <input id="password" class="input input-password" type="password">
-        </div>
+            
+            <button id="login-btn" class="login-button" type="submit">Entrar</button>
+        </form>
 
-        <a href="home.html"><button class="login-button" type="button">Entrar</button></a>
         
     </div>
 
-
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="./js/login.js"></script>
 </body>
 </html>
