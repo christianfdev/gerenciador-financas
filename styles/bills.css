@@ -1,0 +1,48 @@
+
+.bills {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 1rem 2rem 0 2rem;
+    gap: 1rem;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    width: 40vw;
+}
+
+.info ul {
+    list-style: none;
+}
+
+.info p::first-letter {
+    text-transform: uppercase;
+}
+
+.info span {
+    font-weight: 700;
+}
+
+.infoTable td::first-letter{
+    text-transform: uppercase;
+}
+
+.div-entries h1 {
+    color: blue;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.div-debts h1 {
+    color: red;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.separator {
+    margin-top: 4rem;
+    height: 70vh;
+    width: 2px;
+    background-color: #000;
+}

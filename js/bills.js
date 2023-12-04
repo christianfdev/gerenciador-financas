@@ -6,20 +6,28 @@ function listBills() {
         .then((res) => {
             const registers = res.data;
 
-            let entries = document.getElementById("entries");
-            let debts = document.getElementById("debts");
+            let entriesInfo = document.getElementById("entriesInfo");
+            let debtsInfo = document.getElementById("debtsInfo");
+            
 
             for (i in registers) {
-                console.log(registers[i]);
+                let tr = document.createElement("tr");
+                let tdCategory = document.createElement("td");
+                tdCategory.innerHTML = registers[i].category;
+                let tdValue = document.createElement("td");
+                tdValue.innerHTML = registers[i].value.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}); 
+                let tdDate = document.createElement("td");
+                tdDate.innerHTML = registers[i].date.split('-')[2];
 
-                let element = document.createElement("li");
-                element.innerHTML = registers[i].type;
-
-                registers[i].type === "gastos"
-                    ? entries.appendChild(element)
-                    : debts.appendChild(element)
+                tr.appendChild(tdCategory);
+                tr.appendChild(tdValue);
+                tr.appendChild(tdDate);
+                
+                JSON.stringify(registers[i].type).includes("entrada")
+                    ? entriesInfo.appendChild(tr)
+                    : debtsInfo.appendChild(tr)
             }
-        })
+        }).catch((err) => console.log(err))
 }
 
 

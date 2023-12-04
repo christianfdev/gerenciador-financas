@@ -33,7 +33,7 @@
 
     <div class="new-div">
        
-        <form class="new-form" action="home.html">
+        <form class="new-form" >
             <label for="type">Tipo: </label>
             <select name="" id="type">
                 <option value="entrada">Entrada</option>
@@ -51,11 +51,13 @@
 
 
 
-            <button type="submit" onclick="register()">Adicionar</button>
+            <button type="submit" id="formBtn">Adicionar</button>
         </form>
         
     </div>
 </body>
 
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script src="./js/script.js"></script>
+<script src="./js/new-value.js"></script>
 </html>

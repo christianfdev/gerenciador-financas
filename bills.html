@@ -9,6 +9,7 @@
 
     <link rel="stylesheet" href="./styles/main.css">
     <link rel="stylesheet" href="./styles/menu-mobile.css">
+    <link rel="stylesheet" href="./styles/bills.css">
     
     
     <title>Gerenciador de Finanças</title>
@@ -31,15 +32,44 @@
         <h1>Mês de Novembro</h1>
     </nav>
 
-    <div id="div-entries">
-        <ul id="entries"></ul>
-    </div>
+    <section class="bills">
+        <div id="div-entries" class="div-entries info">
+            <h1>Entradas</h1>
+            <table class="entries" border="1">
+                <thead>
+                    <tr>
+                        <th>Categoria</th>
+                        <th>Valor</th>
+                        <th>Dia</th>
+                    </tr>
+                </thead>
+                <tbody id="entriesInfo">
+                   
+                </tbody>
+            </table>
+        </div>
 
-    <div id="div-debts">
-        <ul id="debts"></ul>
-    </div>
+        <div class="separator"></div>
+    
+        <div id="div-debts" class="div-debts info">
+            <h1>Gastos</h1>
+            <table class="debts infoTable" border="1">
+                <thead>
+                    <tr>
+                        <th>Categoria</th>
+                        <th>Valor</th>
+                        <th>Dia</th>
+                    </tr>
+                </thead>
+                <tbody id="debtsInfo">
+                    
+                </tbody>
+            </table>
+        </div>
+    </section>
 
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="./js/script.js"></script>
     <script src="./js/bills.js"></script>
 </body>
 </html>
