@@ -1,15 +1,47 @@
 // Chart
+function getPayload (token) {
+  var payload = token.split('.')[1]; //pegar a segunda parte do token
+  return JSON.parse(window.atob(payload)); //atob decodifica uma string base64
+};
 
+const id = getPayload(localStorage.getItem('token')).id;
+
+
+//RESOLVER QUESTÃO DA PROMISE!!!
+
+async function getValues(){
+  await axios
+    .get(`http://localhost:3000/api/registers/balance/${id}`)
+    .then((res) => {
+        const registers = res.data.registers;
+        let labels = [];
+        let data = [];
+        
+        for (i in registers) {
+          labels.push(registers[i].category);
+          data.push(registers[i].value);  
+        }
+
+        let values = {labels, data}
+        return values
+    })
+    .catch((err) => console.log(err));
+}
+
+
+let obj = getValues();
+
+console.log(obj);
 
 const ctx = document.getElementById('myChart');
 
   new Chart(ctx, {
     type: 'doughnut',
     data: {
-      labels: ['Aluguel', 'Compras', 'Dízimo', 'Fornecedores', 'Lanches', 'Lazer'],
+      labels: getValues().labels,
       datasets: [{
         label: 'Valor',
-        data: [1000, 760, 1000, 6760, 460, 500],
+        data: getValues().data,
         borderWidth: 1
       }]
     },

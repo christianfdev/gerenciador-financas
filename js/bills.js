@@ -1,8 +1,14 @@
 
+function getPayload (token) {
+    var payload = token.split('.')[1]; //pegar a segunda parte do token
+    return JSON.parse(window.atob(payload)); //atob decodifica uma string base64
+};
+
+const userId = getPayload(localStorage.getItem('token')).id;
 
 function listBills() {
     axios
-        .get(`http://localhost:3000/api/registers`)
+        .get(`http://localhost:3000/api/registers/all/${userId}`)
         .then((res) => {
             const registers = res.data;
 

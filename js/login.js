@@ -16,7 +16,7 @@ async function login(e){
     await axios
         .post('http://localhost:3000/api/login', credentials)
         .then((res) => {
-            localStorage.setItem(res.data.token, 'token');
+            localStorage.setItem('token', res.data.token);
             console.log(res.data.token);
             window.location.replace('home.html');
         })

@@ -34,6 +34,21 @@
     font-size: 0.9rem;
 }
 
+.list {
+    list-style: none;
+}
+
+.table td::first-letter {
+    text-transform: uppercase;
+}
+
+.bold {
+    font-weight: 500;
+    font-size: 0.89rem;
+    padding-right: 2rem;
+}
+
+
 .border {
     box-sizing: border-box;
     box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
