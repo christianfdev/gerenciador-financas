@@ -99,5 +99,19 @@
 
     .card {
         width: 85vw;
+        align-items: center;
+    }
+
+    .card-info {
+        flex-direction: column;
+    }
+
+
+}
+
+
+@media(min-width: 1200px){
+    .card { 
+        width: 30vw;
     }
 }
