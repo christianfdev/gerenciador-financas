@@ -5,12 +5,19 @@ function getPayload (token) {
 
 const userId = getPayload(localStorage.getItem('token')).id;
 
+const months = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
+
+console.log(months[new Date().getMonth()]);
+
+
+
 function listar() {
     axios
         .get(`http://localhost:3000/api/registers/balance/${userId}`)
         .then((res) => {
             const registers = res.data.registers;
 
+            let title = document.getElementById("card-title");
             let entries = document.getElementById("entries");
             let debts = document.getElementById("debts");
             
