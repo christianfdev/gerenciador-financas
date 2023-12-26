@@ -13,11 +13,15 @@ console.log(months[new Date().getMonth()]);
 
 function listar() {
     axios
-        .get(`http://localhost:3000/api/registers/balance/${userId}`)
+        .get(`http://localhost:3000/api/registers/balance/${userId}/${new Date().getMonth()}`)
         .then((res) => {
             const registers = res.data.registers;
 
             let title = document.getElementById("card-title");
+
+            console.log(registers[0].month);
+
+
             let entries = document.getElementById("entries");
             let debts = document.getElementById("debts");
             

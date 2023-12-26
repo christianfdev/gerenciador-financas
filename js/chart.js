@@ -1,19 +1,9 @@
-
-
-
 function getPayload(token) {
   var payload = token.split('.')[1]; //pegar a segunda parte do token
   return JSON.parse(window.atob(payload)); //atob decodifica uma string base64
 };
 
 const id = getPayload(localStorage.getItem('token')).id;
-
-
-
-
-
-
-
 
 // Chart
 
@@ -24,7 +14,7 @@ const ctx = document.getElementById('myChart');
 
 let obj = async function getValues() {
   await axios
-    .get(`http://localhost:3000/api/registers/balance/${id}`)
+    .get(`http://localhost:3000/api/registers/balance/${id}/${new Date().getMonth()}`)
     .then((res) => {
 
 
