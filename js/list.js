@@ -19,8 +19,7 @@ function listar() {
 
             let title = document.getElementById("card-title");
 
-            console.log(registers[0].month);
-
+            title.innerHTML = months[res.data.month];
 
             let entries = document.getElementById("entries");
             let debts = document.getElementById("debts");
@@ -53,3 +52,51 @@ function listar() {
 
 
 listar();
+
+
+// CHART
+
+const ctx = document.getElementById('myChart');
+
+
+let obj = async function getValues() {
+  await axios
+    .get(`http://localhost:3000/api/registers/balance/${id}/${new Date().getMonth()}`)
+    .then((res) => {
+
+
+      const registers = res.data.registers;
+      let labels = [];
+      let data = [];
+
+      for (i = 0; i < registers.length; i++) {
+        labels.push(registers[i].category);
+        data.push(registers[i].value);
+
+        if (i === registers.length - 1) {
+          new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+              labels: labels,
+              datasets: [{
+                label: 'Valor',
+                data: data,
+                borderWidth: 1
+              }]
+            },
+            options: {
+              plugins: {
+                title: {
+                  display: true,
+                  text: `${months[res.data.month]} Gastos`,
+                  color: "#000"
+                }
+              }
+            }
+          });
+        }
+      }
+
+    })
+    .catch((err) => console.log(err));
+}()
