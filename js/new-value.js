@@ -5,7 +5,6 @@ function getPayload (token) {
 
 const userId = getPayload(localStorage.getItem('token')).id;
 
-
 const formBtn = document.getElementById('formBtn');
 
 async function register(e){

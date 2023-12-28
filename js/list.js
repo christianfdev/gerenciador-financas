@@ -14,12 +14,10 @@ function listar() {
             const registers = res.data.registers;
 
             let title = document.getElementById("card-title");
-
             title.innerHTML = months[res.data.month];
 
             let entries = document.getElementById("entries");
             let debts = document.getElementById("debts");
-
             let balance = document.getElementById("balance");
 
             for (i in registers) {
