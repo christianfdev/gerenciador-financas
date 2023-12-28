@@ -1,6 +1,4 @@
-
 const loginBtn = document.getElementById('login-btn');
-
 
 async function login(e){
     e.preventDefault();
@@ -20,7 +18,10 @@ async function login(e){
             console.log(res.data.token);
             window.location.replace('home.html');
         })
-        .catch((err) => console.log(err));
+        .catch((err) => {
+            console.log(err);
+            alert("Login/Senha Incorretos! Verifique e tente novamente!");
+        });
 }
 
 loginBtn.addEventListener('click', login);

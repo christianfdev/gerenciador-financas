@@ -1,15 +1,11 @@
-function getPayload (token) {
-    var payload = token.split('.')[1]; //pegar a segunda parte do token
-    return JSON.parse(window.atob(payload)); //atob decodifica uma string base64
+function getPayload(token) {
+    var payload = token.split('.')[1]; 
+    return JSON.parse(window.atob(payload)); 
 };
 
 const userId = getPayload(localStorage.getItem('token')).id;
 
 const months = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
-
-console.log(months[new Date().getMonth()]);
-
-
 
 function listar() {
     axios
@@ -23,7 +19,7 @@ function listar() {
 
             let entries = document.getElementById("entries");
             let debts = document.getElementById("debts");
-            
+
             let balance = document.getElementById("balance");
 
             for (i in registers) {
@@ -33,19 +29,17 @@ function listar() {
                 tdCategory.innerHTML = registers[i].category;
                 tdCategory.classList.add("bold");
                 let tdValue = document.createElement("td");
-                tdValue.innerHTML = registers[i].value.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}); 
-                
+                tdValue.innerHTML = registers[i].value.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
+
                 tr.appendChild(tdCategory);
                 tr.appendChild(tdValue);
 
-                
+
                 JSON.stringify(registers[i].type).includes("entrada")
                     ? entries.appendChild(tr)
                     : debts.appendChild(tr)
-
-                
             }
-            balance.innerHTML += res.data.balance.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}); ;
+            balance.innerHTML += res.data.balance.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });;
         })
         .catch((err) => console.log(err));
 }
@@ -59,44 +53,44 @@ listar();
 const ctx = document.getElementById('myChart');
 
 
-let obj = async function getValues() {
-  await axios
-    .get(`http://localhost:3000/api/registers/balance/${id}/${new Date().getMonth()}`)
-    .then((res) => {
+// Ainda retornando os valores gerais
+// A ideia inicial é apenas retornar os gastos nesse chart
 
+let create = async function createChart() {
+    await axios
+        .get(`http://localhost:3000/api/registers/balance/${userId}/${new Date().getMonth()}`)
+        .then((res) => {
+            const registers = res.data.registers;
+            let labels = [];
+            let data = [];
 
-      const registers = res.data.registers;
-      let labels = [];
-      let data = [];
+            for (i = 0; i < registers.length; i++) {
+                labels.push(registers[i].category);
+                data.push(registers[i].value);
 
-      for (i = 0; i < registers.length; i++) {
-        labels.push(registers[i].category);
-        data.push(registers[i].value);
-
-        if (i === registers.length - 1) {
-          new Chart(ctx, {
-            type: 'doughnut',
-            data: {
-              labels: labels,
-              datasets: [{
-                label: 'Valor',
-                data: data,
-                borderWidth: 1
-              }]
-            },
-            options: {
-              plugins: {
-                title: {
-                  display: true,
-                  text: `${months[res.data.month]} Gastos`,
-                  color: "#000"
+                if (i === registers.length - 1) {
+                    new Chart(ctx, {
+                        type: 'doughnut',
+                        data: {
+                            labels: labels,
+                            datasets: [{
+                                label: 'Valor',
+                                data: data,
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            plugins: {
+                                title: {
+                                    display: true,
+                                    text: `${months[res.data.month]} Gastos`,
+                                    color: "#000"
+                                }
+                            }
+                        }
+                    });
                 }
-              }
             }
-          });
-        }
-      }
-
-    })
-    .catch((err) => console.log(err));
+        })
+        .catch((err) => console.log(err));
 }()

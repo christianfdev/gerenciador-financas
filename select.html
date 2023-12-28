@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="./styles/main.css">
+    <link rel="stylesheet" href="./styles/menu-mobile.css">
+    <link rel="stylesheet" href="./styles/bills.css">
+
+
+    <title>Gerenciador de Finanças</title>
+</head>
+
+<body>
+    <nav>
+        <button id="button-menu" class="button-menu" type="button">
+            <div></div>
+            <div></div>
+            <div></div>
+        </button>
+
+        <ul id="menu-mobile" class="menu-mobile">
+            <li><a href="./home.html">Home</a></li>
+            <li><a href="">Meu Perfil</a></li>
+            <li><a href="./select.html">Histórico Financeiro</a></li>
+            <li><a href="">Relatórios</a></li>
+            <li><a href="./index.html"><button class="exit-button" type="button">Sair</button></a></li>
+        </ul>
+
+        <h1>Página de Seleção</h1>
+    </nav>
+
+    <section class="select">
+        <form id="select-form" class="select-form">
+            <input id="date" type="month">
+            <button type="submit" id="formBtn">Adicionar</button>
+        </form>
+    </section>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="./js/script.js"></script>
+    <script src="./js/select.js"></script>
+</body>
+
+</html>

@@ -1,6 +1,6 @@
 function getPayload (token) {
-    var payload = token.split('.')[1]; //pegar a segunda parte do token
-    return JSON.parse(window.atob(payload)); //atob decodifica uma string base64
+    var payload = token.split('.')[1]; 
+    return JSON.parse(window.atob(payload));
 };
 
 const userId = getPayload(localStorage.getItem('token')).id;
@@ -19,14 +19,15 @@ async function register(e){
         userId
     }
 
-
     await axios
         .post(`http://localhost:3000/api/registers`, register)
-        .then(res => console.log(res))
+        .then(res => {
+            // A ideia é implementar uma pop-up perguntando se o usuário pretende adicionar mais algum registro
+            // Caso não, redirecionar como está agora.
+            console.log(res);
+            window.location.replace('./home.html');
+        })    
         .catch(err => console.log(err));
-
-    
-    console.log(register)
 }
 
 formBtn.addEventListener('click', register);
