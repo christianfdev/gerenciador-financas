@@ -80,7 +80,7 @@ let create = async function createChart() {
                             plugins: {
                                 title: {
                                     display: true,
-                                    text: `${months[res.data.month]} Gastos`,
+                                    text: `Finanças de ${months[res.data.month]}`,
                                     color: "#000"
                                 }
                             }

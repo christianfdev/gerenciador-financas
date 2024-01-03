@@ -5,7 +5,6 @@
     align-items: center;
 }
 
-
 .select-form {
     height: 30vh;
     width: 15vw;
@@ -42,8 +41,7 @@
 }
 
 
-
-@media (max-width: 1200px){
+@media (max-width: 1200px) {
     .select-form {
         width: 70vw;
     }

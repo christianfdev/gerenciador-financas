@@ -1,5 +1,3 @@
-
-
 const btnExit = document.getElementById("exit");
 
 function exit(){

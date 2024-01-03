@@ -6,15 +6,19 @@ function getPayload (token) {
 const userId = getPayload(localStorage.getItem('token')).id;
 
 const formBtn = document.getElementById('formBtn');
+let type = document.getElementById('type');
+let category = document.getElementById('category');
+let value = document.getElementById('value');
+let date = document.getElementById('date');
 
 async function register(e){
     e.preventDefault();
 
     let register = {
-        type: document.getElementById('type').value,
-        category: document.getElementById('category').value,
-        value: document.getElementById('value').value,
-        date: document.getElementById('date').value,
+        type: type.value,
+        category: category.value,
+        value: value.value,
+        date: date.value,
         userId
     }
 
@@ -24,7 +28,14 @@ async function register(e){
             // A ideia é implementar uma pop-up perguntando se o usuário pretende adicionar mais algum registro
             // Caso não, redirecionar como está agora.
             console.log(res);
-            window.location.replace('./home.html');
+            if(confirm('Registro adicionado com sucesso!\n Para adicionar outro clique em OK')){
+                type.value = '';
+                category.value = '';
+                value.value = '';
+                date.value = '';
+            }else {
+                window.location.replace('./home.html');
+            }
         })    
         .catch(err => console.log(err));
 }
