@@ -9,7 +9,7 @@ const months = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Jul
 
 function listar() {
     axios
-        .get(`http://localhost:3000/api/registers/balance/${userId}/${new Date().getMonth()}`)
+        .get(`http://localhost:3000/api/registers/balance/${userId}/${new Date().getFullYear()}-${Number(new Date().getMonth())+1}`)
         .then((res) => {
             const registers = res.data.registers;
 
@@ -31,7 +31,6 @@ function listar() {
 
                 tr.appendChild(tdCategory);
                 tr.appendChild(tdValue);
-
 
                 JSON.stringify(registers[i].type).includes("entrada")
                     ? entries.appendChild(tr)
@@ -56,7 +55,7 @@ const ctx = document.getElementById('myChart');
 
 let create = async function createChart() {
     await axios
-        .get(`http://localhost:3000/api/registers/balance/${userId}/${new Date().getMonth()}`)
+        .get(`http://localhost:3000/api/registers/balance/${userId}/${new Date().getFullYear()}-${Number(new Date().getMonth())+1}`)
         .then((res) => {
             const registers = res.data.registers;
             let labels = [];
