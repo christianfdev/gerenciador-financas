@@ -1,0 +1,65 @@
+
+
+.div-foto {
+    height: 14rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.foto-perfil {
+    width: 6rem;
+    border-radius: 50%;
+}
+
+.balance {
+    background-color: var(--primary-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #fff;
+}
+
+.config{
+    display: flex;
+    flex-direction: column;
+    padding-top: 2rem;
+    gap: 1rem;
+}
+
+.config button {
+    border: none;
+    height: 4rem;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+@media (min-width: 1200px){
+
+    section {
+        display: flex;
+        justify-content: center;
+    }
+    .container {
+        width: 50vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .balance {
+        width: 12rem;
+        height: 6rem;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .config button {
+        width: 20vw;
+    }
+}
