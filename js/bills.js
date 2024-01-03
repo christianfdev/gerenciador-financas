@@ -6,17 +6,17 @@ function getPayload(token) {
 const userId = getPayload(localStorage.getItem('token')).id;
 
 const months = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
-let month = parseInt(localStorage.getItem("date").split('-')[1]) - 1;
+
 
 function listBills() {
     axios
-        .get(`http://localhost:3000/api/registers/all/${userId}/${month}`)
+        .get(`http://localhost:3000/api/registers/all/${userId}/${localStorage.getItem("date")}`)
         .then((res) => {
             const registers = res.data;
             let entriesInfo = document.getElementById("entriesInfo");
             let debtsInfo = document.getElementById("debtsInfo");
             const title = document.getElementById("title");
-            title.innerHTML += months[month];
+            title.innerHTML += months[parseInt(localStorage.getItem("date").split('-')[1]) - 1];
 
             if (registers) {  
                 for (i in registers) {
